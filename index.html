@@ -122,6 +122,15 @@ alert("No matter how far you are, please take care of yourself. You matter more 
 }
 
 setInterval(function() {
-var heart =
+var heart = document.createElement("div");
+heart.innerHTML = "💖";
+heart.className = "heart";
+heart.style.left = Math.random() * 100 + "vw";
+ document.body.appendChild(heart);
+
+ setTimeout(() => heart.remove(), 6000);
+}, 500);
+</scripy>
+
 
 
