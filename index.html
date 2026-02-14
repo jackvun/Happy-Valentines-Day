@@ -3,115 +3,87 @@
 <head>
 <meta charset="UTF-8">
 <title>For You 💗</title>
+
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-
-  <script>
-setInterval(function() {
-  const s = document.createElement("div");
-  s.className = "sparkle";
-
-  s.style.left = Math.random() * window.innerWidth + "px";
-  s.style.top = Math.random() * window.innerHeight + "px";
-
-  document.body.appendChild(s);
-
-  setTimeout(() => s.remove(), 1500);
-}, 120);
-</script>
 
 <style>
 body {
-margin: 0;
-padding: 0;
-font-family: 'Poppins', sans-serif;
-background: linear-gradient(135deg, #ffd6e8, #ffc2d1, #ffe6f0);
-height: 100vh;
-display: flex;
-justify-content: center;
-align-items: center;
-overflow: hidden;
+margin:0;
+padding:0;
+font-family:'Poppins',sans-serif;
+background: linear-gradient(135deg,#ffd6e8,#ffc2d1,#ffe6f0);
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+overflow:hidden;
 }
 
-.sparkle {
-  position: fixed;
-  width: 4px;
-  height: 4px;
-  background: white;
-  border-radius: 50%;
-  pointer-events: none;
-  animation: twinkle 1.5s infinite alternate;
+.sparkle{
+position:fixed;
+width:4px;
+height:4px;
+background:white;
+border-radius:50%;
+pointer-events:none;
+animation:twinkle 1.5s infinite alternate;
 }
 
-@keyframes twinkle {
-  from { opacity: 0.2; transform: scale(0.5); }
-  to { opacity: 1; transform: scale(1.5); }
+@keyframes twinkle{
+from{opacity:0.2;transform:scale(0.5);}
+to{opacity:1;transform:scale(1.5);}
 }
 
-
-/* Glass Card */
-.card {
-background: rgba(255,255,255,0.25);
-backdrop-filter: blur(15px);
-border-radius: 25px;
-padding: 40px;
-width: 90%;
-max-width: 600px;
-text-align: center;
-box-shadow: 0 10px 40px rgba(0,0,0,0.15);
-animation: fadeIn 1.5s ease-in-out;
+.card{
+background:rgba(255,255,255,0.25);
+backdrop-filter:blur(15px);
+border-radius:25px;
+padding:40px;
+width:90%;
+max-width:600px;
+text-align:center;
+box-shadow:0 10px 40px rgba(0,0,0,0.15);
+animation:fadeIn 1.5s ease-in-out;
 }
 
-h1 {
-color: #ff4d88;
-font-size: 32px;
+h1{color:#ff4d88;font-size:32px;}
+p{color:#cc3366;font-size:15px;line-height:1.8;}
+
+button{
+margin-top:20px;
+padding:10px 25px;
+border-radius:30px;
+border:none;
+background:#ff4d88;
+color:white;
+cursor:pointer;
+transition:0.3s;
+}
+button:hover{transform:scale(1.1);background:#e6005c;}
+
+@keyframes fadeIn{
+from{opacity:0;transform:translateY(20px);}
+to{opacity:1;transform:translateY(0);}
 }
 
-p {
-color: #cc3366;
-font-size: 15px;
-line-height: 1.8;
+.heart{
+position:absolute;
+font-size:20px;
+animation:float 6s linear infinite;
 }
 
-button {
-margin-top: 20px;
-padding: 10px 25px;
-border-radius: 30px;
-border: none;
-background: #ff4d88;
-color: white;
-font-size: 14px;
-cursor: pointer;
-transition: 0.3s;
-}
-
-button:hover {
-transform: scale(1.1);
-background: #e6005c;
-}
-
-@keyframes fadeIn {
-from {opacity: 0; transform: translateY(20px);}
-to {opacity: 1; transform: translateY(0);}
-}
-
-/* Floating hearts */
-.heart {
-position: absolute;
-font-size: 20px;
-animation: float 6s linear infinite;
-}
-
-@keyframes float {
-0% { transform: translateY(100vh); opacity:1; }
-100% { transform: translateY(-10vh); opacity:0; }
+@keyframes float{
+0%{transform:translateY(100vh);opacity:1;}
+100%{transform:translateY(-10vh);opacity:0;}
 }
 </style>
 </head>
 
 <body>
 
-<audio autoplay loop>
-<source src="saya.mp3" type="audio/mpeg">
+<!-- AUDIO (tak autoplay) -->
+<audio id="bgmusic" loop>
+  <source src="saya.mp3" type="audio/mpeg">
 </audio>
 
 <div class="card">
@@ -119,9 +91,7 @@ animation: float 6s linear infinite;
 
 <p>Hi Weni 🌸</p>
 
-<p>
-Aku harap kamu baik-baik saja di sana.
-</p>
+<p>Aku harap kamu baik-baik saja di sana.</p>
 
 <p>
 Kerja jauh dari keluarga bukan sesuatu yang mudah.
@@ -138,30 +108,37 @@ Tak semua orang mampu buat apa yang kamu buat sekarang.
 <p>
 Aku mungkin tak lagi berada di sisi kamu,
 tapi aku tetap doakan semuanya dipermudahkan untuk kamu.
-Stay strong, but also be gentle with yourself💕
-
- HAPPY VALENTINES DAY💕💕💕💕 GOD BLESS YOU ALWAYSSS
+Stay strong, but also be gentle with yourself 💕
+HAPPY VALENTINES DAY 💕
 </p>
 
 <button onclick="showLove()">Click here 🥺</button>
 </div>
 
 <script>
-function showLove() {
-alert("No matter how far you are, please take care of yourself. You matter more than you think... HAPPY VALENTINES DAY 💗");
+// PLAY MUSIC + MESSAGE
+function showLove(){
+  document.getElementById("bgmusic").play();
+  alert("No matter how far you are, please take care of yourself 💗");
 }
 
-setInterval(function() {
-var heart = document.createElement("div");
-heart.innerHTML = "💖";
-heart.className = "heart";
-heart.style.left = Math.random() * 100 + "vw";
- document.body.appendChild(heart);
+// SPARKLE EFFECT
+setInterval(function(){
+  const s=document.createElement("div");
+  s.className="sparkle";
+  s.style.left=Math.random()*window.innerWidth+"px";
+  s.style.top=Math.random()*window.innerHeight+"px";
+  document.body.appendChild(s);
+  setTimeout(()=>s.remove(),1500);
+},120);
 
- setTimeout(() => heart.remove(), 6000);
-}, 500);
+// HEART EFFECT
+setInterval(function(){
+  var heart=document.createElement("div");
+  heart.innerHTML="💖";
+  heart.className="heart";
+  heart.style.left=Math.random()*100+"vw";
+  document.body.appendChild(heart);
+  setTimeout(()=>heart.remove(),6000);
+},500);
 </script>
-
-
-
-
